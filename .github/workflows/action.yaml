@@ -36,6 +36,8 @@ jobs:
     steps:
       - name: Download Artifact
         uses: actions/download-artifact@v2
+        with:
+          name: zipped-bundle
       - name: Configure AWs credentials
         uses: aws-actions/configure-aws-credentials@v1
         with: 
@@ -43,5 +45,5 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - name: Upload to S3
-        run: aws s3 cp ${{ github.sha }}.zip s3://my-bucket-ihdbvdjhvb/
+        run: aws s3 cp ${{ github.sha }}.zip s3://my-bucket-ihdbvdjhvb/${{ github.sha }}.zip
       
