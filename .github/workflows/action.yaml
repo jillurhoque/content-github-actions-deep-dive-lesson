@@ -11,10 +11,11 @@ on:
 jobs:
   build: 
     runs-on: ubuntu-latest
-    
+#   runs-on: ${{ matrix.os }}
 #   strategy:
 #     matrix:
 #       python-version: [3.x, 4.x, 5.x, 6.x]
+#       os: [ubuntu-latest, windows-latest, macOS-latest] 
     
     steps:
       - name: Check out code
