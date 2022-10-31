@@ -7,6 +7,8 @@ on:
 # pull_request:
 #   branches:
 #     - main
+# schedule:
+#   - cron: 0 12 * * 1
 
 jobs:
   build: 
@@ -79,8 +81,14 @@ jobs:
 #   runs-on: ubuntu-latest
 #   needs: upload
 #   steps:
-#     - name: Build Docker Image & push to Dockerhub
-#       run: docker build . -t <image_name> 
+#     - name: Build & Push Docker Image
+#       run: docker build . -t <repo/image> 
 #       run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u ${{ secrets.DOCKER_USERNAME }} --password-stdin
-#       run: docker push <image_name>
-        
+#       run: docker push <repo/image>
+# OR
+#       uses: mr-smithers-excellent/docker-build-push@v5
+#       with:
+#         image: repo/image
+#         registry: docker.io
+#         username: ${{ secrets.DOCKER_USERNAME }}
+#         password: ${{ secrets.DOCKER_PASSWORD }}
