@@ -21,6 +21,8 @@ jobs:
 #   environment:
 #     name: Development
 #     url: 
+#   outputs:
+#     script-file: ${{ steps.publish.outputs.script-file }}
     
     steps:
       - name: Check out code
@@ -44,6 +46,9 @@ jobs:
         with: 
           name: zipped-bundle
           path: ${{ github.sha }}.zip
+#       - name: publish filename
+#         id: publish
+#         run: find <path> -type f -execdir echo 'script-file={}' >> $GITHUB_OUTPUT ';'
     
   upload:
     runs-on: ubuntu-latest
