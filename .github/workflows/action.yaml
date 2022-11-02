@@ -19,7 +19,7 @@ jobs:
 #       python-version: [3.x, 4.x, 5.x, 6.x]
 #       os: [ubuntu-latest, windows-latest, macOS-latest] 
 #   environment:
-#     name: Development
+#     name: Testing
 #     url: 
 #   outputs:
 #     script-file: ${{ steps.publish.outputs.script-file }}
